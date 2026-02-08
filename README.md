@@ -7,6 +7,8 @@ This is the official code implementation of the paper "Multi-view Gaze Target Es
 ## Multi-view Gaze Target (MVGT) Dataset
 Please go to the [project webpage](https://www3.cs.stonybrook.edu/~cvl/multiview_gte.html) to download the dataset. Please check the Readme file of in the dataset regarding the data organization and annotation format.
 
+We release the depth maps estimated from Metric3D ([link](https://drive.google.com/file/d/1xbSstpy7MYP9oHisVhDQMGMQdAH9liTb/view?usp=drive_link)) and the estimated scale shifts for Cross-view GTE ([link](https://drive.google.com/file/d/1X5W55ktz8ee7gk_rgeBBZxDmAJ2AnQEC/view?usp=drive_link)).
+
 ## Run Code
 
 We used pytorch 2.1.2, pytorch-lightning=2.3.1, and pytorch-cuda=11.8 in our experiments.
