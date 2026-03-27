@@ -79,7 +79,7 @@ if __name__ == "__main__":
     parser.add_argument("--test_scene", type=str, default='', help='scene for validation')
     parser.add_argument("--freeze_gaze_backbone", action='store_true')  
     parser.add_argument("--gaze_estimator_weights", default='/nfs/bigrod/add_disk0/qiaomu/ckpts/gaze/gaze360/gaze360_res18_backbone.pt')
-    parser.add_argument("--init_weights", default='/nfs/bigrod/add_disk0/qiaomu/ckpts/gazefollow/transformer/transformer_fovcat_decay13modeltransformerlr5e-05bs40_decoderlayers1_ampfactor1000.0_lambda5.0_dir3.0_optimadamw/epoch_19_weights.pt')
+    parser.add_argument("--init_weights", type=str, required=True)
     parser.add_argument("--project_name", default='Multiview_CrossScene')
     parser.add_argument('--fov_thres', type=float, default=0.9, help='threshold for fov heatmap in ChildPlay')
     parser.add_argument('--alpha', type=float, default=10.0, help='weight for heatmap loss')

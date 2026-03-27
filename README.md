@@ -14,7 +14,9 @@ We also release the depth maps estimated from Metric3D ([link](https://drive.goo
 We used pytorch 2.1.2, pytorch-lightning=2.3.1, and pytorch-cuda=11.8 in our experiments.
 We performed leave-one-scene-out cross-validation. The results when validated on each of the 4 scenes are averaged and reported. We provide the code for both evaluating for each head/target visibility combination, and evaluating for cross-view GTE task.
 
-We provide the examplar model checkpoints for multi-view and cross-view [here](https://drive.google.com/drive/folders/1A-5wdE31uCqvJbpiOthw1qc9yxiZqlEa?usp=drive_link).
+In the multi-view experiments, the model is fine-tuned from the weights pretrained on Gazefollow dataset, while in the cross-view experiments the model is fine-tuned from the weights trained in the multi-view experiments. 
+
+We provide the examplar model checkpoints for multi-view and cross-view [here](https://drive.google.com/drive/folders/1A-5wdE31uCqvJbpiOthw1qc9yxiZqlEa?usp=drive_link). The model weights after pretraining on Gazefollow is provided [here](https://drive.google.com/file/d/1_kYgEnDUnyNRw6Lgveckgoh6InCx0AEQ/view?usp=drive_link).
 
 ## License
 The code is under [CC BY-NC-SA 4.0 license](https://creativecommons.org/licenses/by-nc-sa/4.0/)
