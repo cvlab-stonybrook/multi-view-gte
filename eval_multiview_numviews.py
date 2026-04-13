@@ -1,3 +1,10 @@
+'''
+Evaluate the model with different number of views in multi-view setting
+Example usage: python eval_multiview_numviews.py --device 1 --test_scene {scene_name} --num_pairs {num_pairs} --init_weights {ckpt_path} --image_size 512 384
+You can add --save_info to save the prediction results to avoid re-evaluating the same scene.
+'''
+
+
 import argparse
 import numpy as np
 import torch
