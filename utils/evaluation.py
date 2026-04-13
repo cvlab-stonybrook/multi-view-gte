@@ -165,9 +165,9 @@ def metric_multipairs(scores_all, main_id, pred_var, num_pairs, gt_list=None, is
                 eval_scores.append(scores_eval)
             elif num_pairs<5:
                 for eval_time in range(5):
-                    eval_index = np.random.choice(eval_index, num_pairs, replace=False)
-                    scores_eval = this_scores[eval_index]
-                    var_eval = pred_var[idx_last:i][eval_index]
+                    sampled_index = np.random.choice(eval_index, num_pairs, replace=False)
+                    scores_eval = this_scores[sampled_index]
+                    var_eval = pred_var[idx_last:i][sampled_index]
                     var_min_idx = np.argmin(var_eval)
                     eval_scores.append(scores_eval[var_min_idx])
             else:

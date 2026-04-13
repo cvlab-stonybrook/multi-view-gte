@@ -142,7 +142,27 @@ class Transformer_fov_cat(pl.LightningModule):
         hm_pred = self.att_head(att_feat)
         return hm_pred, inout_pred, fov_hm, gaze_vec, gaze_var, gt_vec
     
-    
+    def select_gaze_uncertainty(self, gaze_vec, gaze_var, RT, num_views=2, head_valid=None):    
+        gaze_vec, gaze_var = gaze_vec.reshape(-1, num_views, 3), gaze_var.squeeze().reshape(-1, num_views)
+        num_tgts = gaze_vec.size(0)
+        select_idx = torch.argmin(gaze_var, dim=1)
+        batch_idx = torch.arange(num_tgts).to(gaze_vec).long()
+        # if head is invalid in the other view, forcily select the first view
+        if head_valid is not None:
+            other_view_invalid = head_valid[:, 1] == 0
+            select_idx[other_view_invalid] = 0   
+            
+            other_view_invalid = head_valid[:, 0] == 0
+            select_idx[other_view_invalid] = 1      
+        
+        other_idx = 1 - select_idx
+        gaze_vec_select = gaze_vec[batch_idx, select_idx]
+        R_vselect, R_vother = RT[batch_idx, select_idx, :, :3], RT[batch_idx, other_idx, :, :3]
+        gaze_other = torch.bmm(R_vselect.transpose(1,2), gaze_vec_select.unsqueeze(-1))
+        gaze_other = torch.bmm(R_vother, gaze_other).squeeze(-1)
+        gaze_vec[batch_idx, other_idx] = gaze_other
+        gaze_vec = gaze_vec.reshape(-1, 3)
+        return gaze_vec
     
     def configure_optimizers(self):
         if self.freeze_gaze_backbone:
