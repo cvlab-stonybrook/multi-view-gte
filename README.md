@@ -16,7 +16,7 @@ We performed leave-one-scene-out cross-validation. The results when validated on
 
 In the multi-view experiments, the model is fine-tuned from the weights pretrained on Gazefollow dataset, while in the cross-view experiments the model is fine-tuned from the weights trained in the multi-view experiments. 
 
-We provide the examplar model checkpoints for multi-view and cross-view [here](https://drive.google.com/drive/folders/1A-5wdE31uCqvJbpiOthw1qc9yxiZqlEa?usp=drive_link). The model weights after pretraining on Gazefollow is provided [here](https://drive.google.com/file/d/1_kYgEnDUnyNRw6Lgveckgoh6InCx0AEQ/view?usp=drive_link).
+We provide the examplar model checkpoints for [multi-view](https://github.com/cvlab-stonybrook/multi-view-gte/releases/tag/multiview_ckpts) and [cross-view](https://github.com/cvlab-stonybrook/multi-view-gte/releases/tag/crossview_ckpts). The model weights after pretraining on Gazefollow is provided [here](https://github.com/cvlab-stonybrook/multi-view-gte/releases/tag/gf_trained_weights).
 
 ## License
 The code is under [CC BY-NC-SA 4.0 license](https://creativecommons.org/licenses/by-nc-sa/4.0/)
